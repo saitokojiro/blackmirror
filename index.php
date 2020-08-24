@@ -1,3 +1,10 @@
+<?php
+
+use App\user_management;
+
+require_once __DIR__ . "/vendor/autoload.php";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,31 +15,60 @@
 </head>
 
 <body>
-    <div class="container">
 
-        <?php
-require "./function.php";
-$db = \DbConnection::getInstance();
-var_dump()
-/*
-//require __DIR__ . '/model/DB.php';
+    <span>register</span>
+    <form action='./index.php' method="post">
+        <input type="email" name="remail" id="remail" placeholder="your email"> <br>
+        <input type="password" name="rpwd" id="rpwd" placeholder="your password"><br>
+        <input type="submit" value="register" id="send">
+    </form>
 
-$page = $_GET['page'] ?? 'home';
-$page = basename($page, '.php');
 
-$path = __DIR__ . '/view/' . $page . '.php';
+    <span>login</span>
+    <form action='./index.php' method="post">
+        <input type="email" name="lemail" id="lemail" placeholder="your email"> <br>
+        <input type="password" name="lpwd" id="lpwd" placeholder="your password"><br>
+        <input type="submit" value="register" id="send">
+    </form>
 
-var_dump($path);
-if (is_file($path)) {
-    require $path;
-    var_dump($page);
-} else {
-    echo "error 404 : " . $page . " not exist";
+    <?php
+
+//use App\DbConnection;
+
+//$db = new DbConnection();
+$user = new user_management();
+
+//$user->loginDB($_POST['lemail'], $_POST['lpwd']);
+$user->getUsers();
+
+if ($_POST) {
+    if (isset($_POST['remail']) && isset($_POST['rpwd'])) {
+        $user->registerDB($_POST['remail'], $_POST['rpwd']);
+    } else {
+
+    }
+    if (isset($_POST['lemail']) && isset($_POST['lpwd'])) {
+        $user->loginDB($_POST['lemail'], $_POST['lpwd']);
+    } else {
+
+    }
+
 }
 
-*/
+if (empty($_SESSION['email']) && empty($_SESSION['password'])) {
+    echo 'not connected';
+} else {
+    echo 'connected session';
+}
+
 ?>
-    </div>
+
+    <script defer>
+    /*document.getElementById('send').addEventListener('click', function(e) {
+        e.preventDefault();
+    })*/
+    </script>
+
 </body>
 
 </html>
