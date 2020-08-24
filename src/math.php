@@ -4,11 +4,29 @@ namespace App;
 
 class Math
 {
-    // private $hello;
+    const FOOD_PRODUCT = 'food';
 
-    public static function double($nombre)
+    private $name;
+
+    private $type;
+
+    private $price;
+
+    public function __construct($name, $type, $price)
     {
-        return $nombre * 2;
+        $this->name = $name;
+        $this->type = $type;
+        $this->price = $price;
     }
 
+    public function computeTVA()
+    {
+        if (self::FOOD_PRODUCT == $this->type) {
+            return $this->price * 0.055;
+        }
+
+        return $this->price * 0.196;
+    }
+
+    
 }
