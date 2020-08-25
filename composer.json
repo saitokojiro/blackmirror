@@ -1,18 +1,13 @@
 {
     "name": "l231/blackmirror",
-    "authors": [
-        {
-            "name": "Saito Kojiro",
-            "email": "kazutonight@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "Saito Kojiro",
+        "email": "kazutonight@gmail.com"
+    }],
     "autoload": {
         "psr-4": {
             "App\\": "src/"
-        },
-        "classmap": [
-            "src/"
-        ]
+        }
     },
     "require": {},
     "require-dev": {

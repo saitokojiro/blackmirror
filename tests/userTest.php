@@ -2,39 +2,17 @@
 use PHPUnit\Framework\TestCase;
 
 //require_once __DIR__ . "/vendor/autoload.php";
-class userTest extends TestCase
+use App\User;
+class UserTest extends TestCase
 {
 
-    /**
-     * @expectedException InvalidArgumentException
-     * @expectedExceptionMessage Start param is empty !
-     */
 
-     public function testsetUser()
-     {
-        $product = new App\User('test@test.fr', 'password');
-
-        $this->assertSame($product->setEmail('test@test.fr','test@test.fr' ));
-     }
-/*
-    public function testCanBeCreatedFromValidEmailAddress(): void
+    public function testUser()
     {
-        $this->assertInstanceOf(
-            App\User::class,
-            App\User::fromString('users@example.com')
-        );
+        $newUser = new User('test@test.fr', "xj#E4'MFLS~(rnG2");
+        $this->assertInstanceOf(App\User::class,$newUser);
+
     }
-*/
-
-/*
-
-    public function testpasswordChecks(): void
-    {
-        $this->assertInstanceOf(
-            App\User::class,
-            App\User::fromPassString('Abs18dqsd_')
-        );
-    }*/
 
 
 }

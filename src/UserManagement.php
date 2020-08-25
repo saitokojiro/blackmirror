@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-class user_management extends DbConnection
+class UserManagement extends DbConnection
 {
 
     public function __construct()
