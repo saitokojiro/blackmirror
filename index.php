@@ -1,10 +1,13 @@
 <?php
 session_start();
-use App\user_management;
+use App\UserManagement;
 
 require_once __DIR__ . "/vendor/autoload.php";
 
-$user = new user_management();
+$user = new UserManagement();
+$user->getUsers();
+
+var_dump($_SESSION);
 
 require './header.php';
 var_dump(pathinfo('./src/view/'));

@@ -3,12 +3,16 @@ namespace App;
 class Rating 
 
 {
-   private $ratingArray ;
+   private $ratingArray = [];
+   private $message;
+   private $coefRating;
 
-    public function __construct(array $ratingArray, string $message , int $rating)
+    public function __construct(/*array $ratingArray, */string $message , int $rating)
     {
-        $this->ratingObject($ratingArray);
+        //$this->ratingObject($ratingArray);
         $this->ratingContentWithTheMessage($message, $rating);
+        var_dump(count($this->ratingArray));
+        var_dump($this->ratingArray);
     }
     
     public function ratingObject(array $ratingArray)
@@ -32,17 +36,29 @@ class Rating
         
         if ($rating >-1)
         {
-            var_dump('ok1');
-            if($rating < 5 && $rating != 0)
+            if($rating < 5 && $rating != -1)
         {
-            var_dump('ok');
+            array_push($this->ratingArray, $rating);
+            $this->message = $message ;
+            
         }
         else {
-            var_dump('bip');
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'error rating'
+                )
+            );
         }
            
         }else {
-            var_dump('bip');
+            throw new \InvalidArgumentException(
+                sprintf(
+                    'error rating'
+                )
+            );
         }
     }
+
+    
+
 }

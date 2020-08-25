@@ -2,12 +2,12 @@
 <form action='/login' method="post">
     <input type="email" name="remail" id="remail" placeholder="your email"> <br>
     <input type="password" name="rpwd" id="rpwd" placeholder="your password"><br>
-    <input type="submit" value="register" id="send">
+    <input type="submit" value="register" id="sendr">
 </form>
 
 
 <span>login</span>
-<form action='login' method="post">
+<form action='/login' method="post">
     <input type="email" name="lemail" id="lemail" placeholder="your email"> <br>
     <input type="password" name="lpwd" id="lpwd" placeholder="your password"><br>
     <input type="submit" value="login" id="send">
