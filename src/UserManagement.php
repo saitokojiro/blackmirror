@@ -63,24 +63,24 @@ class UserManagement extends DbConnection
 
     public function loginDB($email, $password)
     {
-       // $email = $this->secureString($email);
+        // $email = $this->secureString($email);
 
         //$password = $this->secureString($password);
 
         $sql = "SELECT * FROM account";
         $stmt = $this->connect()->query($sql);
-        while ($row = $stmt->fetch()){
+        while ($row = $stmt->fetch()) {
 
-        if ($row['email'] === $email && $row['password'] === $password) {
-            echo 'connected : ';
-            echo $row['email'] . ' ' . $row['password'];
+            if ($row['email'] === $email && $row['password'] === $password) {
+                echo 'connected : ';
+                echo $row['email'] . ' ' . $row['password'];
 
-            session_start();
+                session_start();
 
-            $_SESSION["email"] = $row['email'];
-            $_SESSION["password"] = $row['password'];
+                $_SESSION["email"] = $row['email'];
+                $_SESSION["password"] = $row['password'];
 
-        }}
+            }}
 
     }
 

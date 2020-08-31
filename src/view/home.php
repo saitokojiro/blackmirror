@@ -5,7 +5,7 @@ if (empty($_SESSION['email']) && empty($_SESSION['password'])) {
 } else {
     echo '<a href="/logout">logout</a>';
 
-?>
+    ?>
 
 
 <!DOCTYPE html>

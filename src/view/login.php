@@ -14,8 +14,6 @@
 </form>
 <?php
 
-
-
 if ($_POST) {
     if (isset($_POST['remail']) && isset($_POST['rpwd'])) {
         $user->registerDB($_POST['remail'], $_POST['rpwd']);
@@ -30,12 +28,11 @@ if ($_POST) {
 
 }
 
-
 if (empty($_SESSION['email']) && empty($_SESSION['password'])) {
     echo 'not connected';
 } else {
     echo 'connected session';
-    
+
     header("Location: /home");
 }
 

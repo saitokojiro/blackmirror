@@ -12,7 +12,7 @@ exit($classname);
 }*/
 namespace App;
 
-class security
+class Service
 {
     public function secureString(string $var)
     {
@@ -24,10 +24,13 @@ class security
         return $var;
     }
 
-    public function emailCheck($email)
+    public function rootService(string $nameUrl, string $pathUrl)
     {
-        return preg_match(" /^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/ ", $email);
+
+        if ($_SERVER['REQUEST_URI'] === $nameUrl) {
+            //echo $twig->render($pathUrl);
+            require './src/view/' . $pathUrl;
+        }
+
     }
-    /*
-spl_autoload_register('autoload');*/
 }
