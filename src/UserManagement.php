@@ -7,7 +7,6 @@ class UserManagement extends DbConnection
     public function __construct()
     {
         echo "test <br>";
-
     }
 
     public function secureString(string $var)

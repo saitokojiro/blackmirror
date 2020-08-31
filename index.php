@@ -8,11 +8,21 @@ require './header.php';
 
 $user = new UserManagement();
 
+function rootService(string $nameUrl, string $pathUrl)
+{
+
+    if ($_SERVER['REQUEST_URI'] === $nameUrl) {
+        //echo $twig->render($pathUrl);
+        require './src/view/' . $pathUrl;
+    }
+
+}
+
 //Root URI
-$user->rootService('/', 'login.php');
-$user->rootService('/home', 'home.php');
-$user->rootService('/login', 'login.php');
-$user->rootService('/logout', 'logout.php');
-$user->rootService('/404', 'error.php');
+rootService('/', 'login.php');
+rootService('/home', 'home.php');
+rootService('/login', 'login.php');
+rootService('/logout', 'logout.php');
+rootService('/404', 'error.php');
 
 require './footer.php';
